@@ -7,7 +7,7 @@
 - Open the terminal screen and paste the code below and run it.
 
   ```
-  git clone https://github.com/immanuel1987/salemdiocesebackend.git
+  git clone https://github.com/sakthi-sakthi/kurnoolbackend.git
   ```
 ## Installation
 
