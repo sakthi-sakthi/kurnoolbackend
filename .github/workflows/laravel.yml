@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v3.2.0
         with:
           fetch-depth: 2
+      
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -22,6 +23,20 @@ jobs:
           protocol: ftps
           exclude: |
             vendor/*
-            .git*
             public/*
+          timeout: 600  # Increase this value if needed
           dangerous-clean-slate: false
+      
+      - name: Install Composer Dependencies
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar install --no-dev --optimize-autoloader
+        working-directory: /public_html/kurnoolbackend/
+
+      - name: Run PHP Artisan Commands
+        run: |
+          php artisan config:cache   # Cache the configuration
+          php artisan route:cache     # Cache the routes
+          php artisan route:clear   # Clear the route cache
+          php artisan optimize     # optimize
+        working-directory: /public_html/kurnoolbackend/
