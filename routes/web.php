@@ -11,9 +11,7 @@ Route::get('/lang/{lang}', [App\Http\Controllers\LangController::class, 'lang'])
 
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
-Route::post('/login', [App\Http\Controllers\LoginController::class, 'loginCheck'])->name('login.check');
-// Route::get('/register', [App\Http\Controllers\LoginController::class, 'registerUser'])->name('register.user');
-// Route::post('/register', [App\Http\Controllers\LoginController::class, 'register'])->name('register');   
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'loginCheck'])->name('login.check'); 
 
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function () {
 
