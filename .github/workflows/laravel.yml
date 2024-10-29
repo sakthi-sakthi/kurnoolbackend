@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 2
       
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: micahjones/ftp-deploy@v1
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
@@ -24,7 +24,6 @@ jobs:
           exclude: |
             vendor/**
             public/**
-          timeout: 600  # Increase this value if needed
           dangerous-clean-slate: false
       
       - name: Install Composer Dependencies
