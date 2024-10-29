@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 2
       
       - name: FTP-Deploy-Action
-        uses: ephraim/ftp-commit@v1.0.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
