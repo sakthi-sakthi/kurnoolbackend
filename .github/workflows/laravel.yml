@@ -22,8 +22,8 @@ jobs:
           server-dir: /public_html/kurnoolbackend/
           protocol: ftps
           exclude: |
-            vendor/*
-            public/*
+            vendor/**
+            public/**
           timeout: 600  # Increase this value if needed
           dangerous-clean-slate: false
       
@@ -31,12 +31,12 @@ jobs:
         run: |
           curl -sS https://getcomposer.org/installer | php
           php composer.phar install --no-dev --optimize-autoloader
-        working-directory: /public_html/kurnoolbackend/
+        working-directory: public_html/kurnoolbackend/
 
       - name: Run PHP Artisan Commands
         run: |
           php artisan config:cache   # Cache the configuration
           php artisan route:cache     # Cache the routes
           php artisan route:clear   # Clear the route cache
-          php artisan optimize     # optimize
-        working-directory: /public_html/kurnoolbackend/
+          php artisan optimize     # Optimize
+        working-directory: public_html/kurnoolbackend/
