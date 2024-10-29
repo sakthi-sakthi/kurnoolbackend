@@ -4,14 +4,7 @@ use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 // URL::forcescheme('https');
 use App\Http\Controllers\TestimonialController;
-
-// Route::get('/', function () {
-//     $page = Page::find(1);
-//     return view('index',compact('page'));
-// })->name('home');
-
 Route::get('/', [App\Http\Controllers\LoginController::class, 'login']);
-// Route::get('/', [App\Http\Controllers\LoginController::class, 'admin'])->name('home');
 Route::post('/ajax', [App\Http\Controllers\Admin\AjaxController::class, 'ajax'])->name('ajax')->middleware('isAdmin');
 
 Route::get('/lang/{lang}', [App\Http\Controllers\LangController::class, 'lang'])->name('lang');
