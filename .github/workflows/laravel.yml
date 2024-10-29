@@ -22,6 +22,6 @@ jobs:
           protocol: ftps
           exclude: |
             vendor/*
-            public/*
             .git*
+            public/*
           dangerous-clean-slate: false
